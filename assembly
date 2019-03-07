@@ -299,3 +299,33 @@ Complex Instruction Set Computer (CISC) design. The instruction set is large, an
 CISC permits compiled programs to contain a relatively small number of instructions. A major disadvantage to CISC design is that complex instructions require a relatively long time to decode and excute. An interpreter inside the CPU written in a language called MICROCODE decodes and executes each machine isntruction.
 
 Reduced Instruction Set Computer (RISC). Consists of a relatively small number of short, simple instructions that execute quickly. rather than using a microcode to decode and execute, a RISC processor directly decodes and excutes instructions using harware.
+
+2.3 x86 Memory Management
+
+20-bit Linear Address Calculation
+
+An address refers to a single locationin memory, and x86 processors permit each byte location to have a separate address. The term for this is:
+
+Byte-Addressable memory. In real address mod, the linear or absolute address is 20 bits, raninging from 0 to FFFFF hex. Programs cannot use linear addressed directly, so addresses are expressed using two 16-bit integers.
+
+A 16-bit segment value placed in one of the segment registers (CS, DS, ES, SS)
+
+A 16-bit offset value
+
+The CPU automatically converts a segment-offset address to a 20-bit linear address. Suppose a variables hex segment offset address is 08F1:0100. The CPU multiplies the segment value by 16 (10 hex) and adds the product to the variables offset.
+
+Three Segments:
+Code
+Data
+Stack
+
+Three Segment Registers:
+CS
+DS
+SS
+
+CS contains a 16-bit code segment address
+DS contains a 16-bit data segment address
+SS contains the 16-bit stack segment address
+
+ES, FS, GS can point to alternate data segments, that is, segments taht supplment the default data segment.
