@@ -108,3 +108,44 @@ The duration of a clock cycle is calc as the reciprocal of the clocks speed, whi
 A machine cycle requires at leastt 1 clock cycle to execute and a few require in excess of 50 clocks).
 
 Instructions requiring memory access often have empty clock cycles called wait states because of the differences in the speeds of the CPU, the system bus and memory circuits.
+
+
+2.1.2 Instruction Execution Cycle
+
+The execution of a single machine instruction can be divided into a sequence of individual operations called INSTRUCTION EXECUTION CYCLES.
+
+Before executing a program is copied into memory.
+
+The INSTRUCTION POINTER contains the address of the next instructions.
+
+The INSTRUCTION QUEUE holds a group of instructions about to be executed.
+
+Three basic types:
+Fetch
+Decode
+Execute
+
+When using memory, two more steps are required:
+Fetch Operand
+Store output operand
+
+Fetch: The control unit (CU) fetches the next instruction from the queue and increments the pointer. Also called a program counter.
+
+Decode: The control unit decodes the instructions function to determine what the instruction will do. The instructions input operands are passed to the ALU, and singals are sent to the ALU indicating the operation tobe performed.
+
+Fetch Operand: If the instruction uses an input operand located in memory, the control unit uses a READ operation to retrive the operand and copy it into internal registers. Internal registers are not visible to programs.
+
+Execute: The ALU executes the instructions using the named registers and internal registers as operands and sends the output to named reggisters and or memory. The ALU updates status flags providing inofmration about the processor state.
+Store Output operand: If the output operand is in memory, the control unit uses a write operation to store the data.
+
+loop
+    fetch next instruction
+    advanced the instruction pointer (IP)
+    if memory needed, val memory
+    execute instruction
+    if result is memory, write resultt
+continue loop
+
+In order to read instructiosn from memory, an address is palced on the address bus.
+next, The memory controller places the req  uested code on the data bus, making the code avail inside the code cache.
+Instruction Pointer (IP) determines which instruction will be executed next.
