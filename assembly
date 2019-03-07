@@ -270,3 +270,12 @@ Parity (PF) is set if the least -significant byte is the resul contains an even 
 MMX Registers
 Eight 64-bit MMX registers support special instructions called SIMD (Single-instruction, Multiple-Data)
 MMX register names are in fact aliases to the same registers used by the floating-point unit.
+
+2.2.3 Floating-Point Unit
+FPU performs high-speed floating-point arithmetic. At one point a seperate coprocessor chip was required for this. now it has been integrated into the main processor chip.
+
+Eight Floating-Point Data Registers:
+ST(0)
+ST(1)
+...
+ST(7)
