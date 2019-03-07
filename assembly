@@ -179,3 +179,16 @@ Scheduling:
 Round-Robin
 
 The processor saves the state of each task before switching to a new one. A task's state consists of the contents of the procssor registers, program counter and status flags, along with references to the tasks memory segment.
+
+2.2.1 Models of Operation
+
+Three primary modes of operation:
+Protected, real-addres mode and system management mode.
+
+Protected Mode: Protected mode is the native state of the processor, in which all instructions and features are available. Programs are given seperate memory areas named segments, and the procesor prevents progams from referencing memory outside their assigned segments.
+
+Virtual-8086 mode: While in protected mode, the processor can directly execute real-address mode software such as MS-DOS programs in a safe multitasking env.
+
+real-Address mode: real-addres mode implements the programming environment of the processor with a few extra features, such as the abbility to switch into other modes. Progams running in real address mode can cause the OS to crash.
+
+Systetm management mode: SMM provides OS with the mechanism for implementing functions such as power management and sytstem security.
