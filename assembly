@@ -55,3 +55,56 @@ OR: ∨
 
 "Order of operations":
 NOT is first before parentheses
+
+2.0 General Concepts
+
+2.1.1 Basic Microcomputer Design
+
+Contains:
+Registers are contained in the CPU (limited number)
+
+A high-frequency clock
+A control unit
+And an arithmetic logic unit
+
+Clock: synchronizes the internal operations of the CPU with other system components.
+
+Control Unit (CU): coordinates the sequence of steps involved in executing machine instructions.
+
+Arithemtic logic unit (ALU): performs arithmetic operations.
+
+CPU pins connect to the data bus, the control bus and the address bus.
+
+The Memory Storage Unit (MSU) is where instructions and data are held while the computer program is running.
+
+All processing of data takes place in the CPU. Programs residing in memory must be copied into the CPU before they can excute.
+
+Bus: is a group of parallel wires that transfer data from one part of the computer to another.
+
+There are usually four bus types:
+Data
+I/O
+Control
+Address
+
+
+Data bus transfers instructions between the CPU and memory.
+
+The I/O bus transfer bus data between the CPU and system inputs.
+
+The control bus uses binary signals to sync actions of all devices attached to the system bus.
+
+The address bus holds the addresses of instructions and data when the currently execting instruction transfer data between the CPU and memory.
+
+CLOCK
+Pulses at a constant rate. The basic unit of time is a "Machine Cycle" or "Clock Cycle". The length of the clock cycle is the time required for one compelte clock pulse.
+
+A clock cycle is the time between one falling cycle and the next. (lambda in math λ).
+
+The duration of a clock cycle is calc as the reciprocal of the clocks speed, which in turn measures in oscillations per second.
+
+1 Billion times per second: 1GHz.
+
+A machine cycle requires at leastt 1 clock cycle to execute and a few require in excess of 50 clocks).
+
+Instructions requiring memory access often have empty clock cycles called wait states because of the differences in the speeds of the CPU, the system bus and memory circuits.
