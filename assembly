@@ -386,3 +386,31 @@ DRAM: commonly known as main memory, is where progams and data are kept when a p
 SRAM: is primarily for expensive high speed cache memory. It does not have to be reefreshed. CPUI cache memory is comproised of SRAM.
 VRAM holds video data. it is dual ported, allowing one port to continuously refresh the display while another port writtes data to the display.
 CMOS RAM on the system morterboard store system setup information. It is refreshed by a battery, so its contents are tained when the computers power is off.
+
+
+2.4.4 I/O ports and devfice interfaces.
+
+2.5.1 Levels of I/O Access
+
+Three primary levels:
+High-level language functions
+Operating System
+BIOS
+
+High-level language functions: Such as C++ and JAva contains functions to perform i/o. These functions are portable becauset ehy work on a variety of different computers and are not dependent on any one OS.
+
+OS: Programmers can call operating system functions from a library known as the API (application programming interface). The operating system provides high-level operating functions such as writing strings to files, reading string, etc.
+
+BIOS: The BASIC-INPUT-OUTPUT-SYSTEM is as collection of low-level subroutines that communicate directly with hard devices. The BIOS is installed by thhe computers manfacturer and is tailored to fit the computesr hardware. OS typically communciate with the BIOS.
+
+Device Drivers
+programs that permitt hte OS to communicate directly with hardware drivers.
+
+Programming at Muiltiple Levels
+
+Assembly language programs have prower flexibility in the area of inpput-output programming.
+
+Level 3: Call library functions to perform generattic text I/O and file based I/O. We supply such a library with this book.
+Level 2: call operating system functions to perform generic text I/O and file-based I/O. If the OS uses a graphical interface, it has functions to display graphicsin a device-independent way.
+Level 1: call BIOS functiosn to control device-specific features such as color, graphics and sound.
+Level 0: Send and receive data from hardware ports.
