@@ -279,3 +279,23 @@ ST(0)
 ST(1)
 ...
 ST(7)
+
+2.2.4 overview of Intel Microprocessors
+
+When a processor uses an 8-bit data bus to transfer a 32-bit integer to memory, the integer must be broken down into four parts, and four separate data transfer operations.
+
+Hyperthreading and Multi-core Processing
+
+A dual processor system contains two seperate physical computer processors, usually attached
+to the same motherboard with its own socket. The computers OS will schedule two separate taks.
+
+Hyper-Threading (HT) allows two tasks to execute on a traditional single processor at the same time. This appraoch is less expensive than a dual processor system, and it makes effecient use of the processors resources.
+
+Dual Core refers to integrated circuit (IC) chips taht contain two complete physical computer processor chips in the same IC package. Sometimes Dual core has HT tech to have them appear as FOUR logical processors.
+
+CISC and RISC
+Complex Instruction Set Computer (CISC) design. The instruction set is large, and incudes a wide variety of memory addressing, shifting, arithmetic, data movement and logical operations.
+
+CISC permits compiled programs to contain a relatively small number of instructions. A major disadvantage to CISC design is that complex instructions require a relatively long time to decode and excute. An interpreter inside the CPU written in a language called MICROCODE decodes and executes each machine isntruction.
+
+Reduced Instruction Set Computer (RISC). Consists of a relatively small number of short, simple instructions that execute quickly. rather than using a microcode to decode and execute, a RISC processor directly decodes and excutes instructions using harware.
