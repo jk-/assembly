@@ -192,3 +192,81 @@ Virtual-8086 mode: While in protected mode, the processor can directly execute r
 real-Address mode: real-addres mode implements the programming environment of the processor with a few extra features, such as the abbility to switch into other modes. Progams running in real address mode can cause the OS to crash.
 
 Systetm management mode: SMM provides OS with the mechanism for implementing functions such as power management and sytstem security.
+
+
+2.2.2 Basic Execution Environment
+
+Address Space
+in 32-bit protected mode, a task or program can address a linear addres space of up to 4GBs. A technique called Extended Physical Addressing allows a total of 64 gigs of physical memory to be address. Real address mode can only address a range of 1 MByte.
+
+Basic Program Execution Registers:
+
+Registers are high-speed storage locations directly inside the CPU, designed to be accessed at much higher speeds than conventional memory. When a processing loop is optimized for speed, for example, loop counters are held in registers rather than variables.
+
+Eight General Purpose Registers
+Six Segment Registers
+Processor Status Flags Register (EFFLAGS)
+Instruction pointer (EIP)
+
+32-Bit General-Purpose Registers
+EAX         EBP
+EBX         ESP
+ECX         ESI
+EDX         EDI
+
+EFLAGS
+EIP
+
+16-bit Registers
+CS      ES
+SS      FS
+DS      GS
+
+General Purpose Registers (GPR's) are primarly used for arithemtic and data movement.
+
+Portions of some registers can be addrsesed as 8-bit values.
+
+32-BIT  16-BIT  8Bit High (H)   8Bit Low (L)
+EAX     AX      AH              AL
+
+
+Specialized uses:
+EAX: is automatically used by multiplication and division instructions. Extended Accumulator Register
+ECX: Loop Counter
+ESI and EDI: used by high-speed memory transfer instructions. Extended Source Index and Extended Desitiontion Indxes.
+EBP: used by high-level languages to reference function parameters and local variables on the stack. Extended Frame Pointer.
+
+Segment Registers:
+In real-address mode, 16-bit segment registers indicate base addresses of preassigned memory areas named segments. In protected mode, segment registers hold pointers to segment descfiptor tables. Some segments hold progarm instructions (code), others hold variables (data) and another segment named the STACK SEGMENT holds local function variables and function aprameters.
+
+EIP (extended Instruction pointer): contains the address of the next instruction to be executed. Certain machine instructions manipulate the EIP, causing the program to branch to a new location.
+
+EFLAGS register (FlAGS): consists of indivual binary bits that control the operation of the CPU or reflect the outcome of some CPU operation. Some instructions test and manipulate individual processor flags.
+
+Control Flags: Control the CPUs operation. Can cause the CPU to break after every instruction executes, interrupt when arithmetic overflow is detected, enter virtual-8086 mode, and enter procted mode.
+
+Direction and Interrupt Flags and be set in the EFLAGS.
+
+Status Flags:
+Overflow
+Sign
+Zero
+Auxiliary Carry
+Parity
+Carry Flags
+
+Carry Flag (CF): is set when the result of an unsigned arithemtic operation is too large to fit into the destination.
+
+Overflow (OF) is set when the result of the signed arithmetic operation is too large or too small to fit into the destination.
+
+Sign (SF) is set when the result of an arithmetic or logical operation generates a negative result.
+
+Zero (ZF) is set when the result of the arithmetic or logical operation generates a result of zero.
+
+Auxiliary Carry (AC) is set when an arithmetic operation causes a carry from bit 3 to bit 4 in an 8-bit operand.
+
+Parity (PF) is set if the least -significant byte is the resul contains an even number of 1 bits. Otherswise, PF is clear. In general, it is used for error checking when there is a possibility tat data might be altered or corrupted. Used as a voltage checksum.
+
+MMX Registers
+Eight 64-bit MMX registers support special instructions called SIMD (Single-instruction, Multiple-Data)
+MMX register names are in fact aliases to the same registers used by the floating-point unit.
