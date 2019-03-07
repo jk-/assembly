@@ -329,3 +329,36 @@ DS contains a 16-bit data segment address
 SS contains the 16-bit stack segment address
 
 ES, FS, GS can point to alternate data segments, that is, segments taht supplment the default data segment.
+
+
+2.3.2 Protected Mode
+
+When running in a protected mode, the programs linear address space is 4GBs using address 0 to FFFFFFFF hex.
+
+Flat Segmentation model
+All segments are mapped to the entire 32-bit physcial address space of the computer. At least two segments are required one for code and one for data. Each segment is defined by a segment descriptor, a 64-bit integger stored in a table known as a global descriptor table (GDT).
+
+All x86 architecture use a flat segmentation model.
+
+Multi-Segment Model
+
+MSM model, each task or program is given its own table of segment descriptors, called LOCAL DESCRIPTOR TABLE (LDT).
+
+Each descriptor points to a segment, which can be distinct from all segments used by other processoes. Each segment descriptor specifies the exact size of its segment.
+
+Segment:
+3000 has size 2000 hex, which is computer as:
+
+0002 x 1000 hex
+
+Segment at 8000 has size A000 hex.
+
+Paging
+
+A feature that permits segments to be divided into 4,096-byte blocks of memory called pages. Paging permits the total memory used by all programs running at the same time to be much larger than the computers physical memory.
+
+The complete collection of pages mapped by the OS is called VIRTUAL MEMORY.
+
+Paging is a solution to a vexing problem. A program must be loaded into main memory before it can run, but memory is expensive.
+
+Users want to be able to load numerous programs into memory and switch among them at will.
