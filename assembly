@@ -159,3 +159,23 @@ The CPU must wait one or more clock cycles until operands have been fetched from
 Trailing Edges: A clock-cycle begins as the clock signal changes from high to low.
 
 Conventional memory is slower than the CPU, computers use high-speech cache memory to hold the most recently used instructions and data. The first time a program reads a block of data, it leaves a copy in the cache. (L2/L3 Cache)
+
+
+2.1.4 How Programs Run
+
+Load and Execute Process
+
+Command promtp program:
+1. The OS searches for the programs filename in the current disk directory. if the file is not found it looks in the $PATH
+2. Found: the OS retrieves basic information about the programs file.
+3. OS determines the next available locattion in memory and loads the program file into emmory. itt allocates a block of memory to the program and enters information about the programs size and location intoa table called a DESCRIPTOR TABLE. The OS may adjust the values of pointers within the progam so they contain addresses of the program data.
+4. OS begins execution of the progams first machine instruction. As soon as the program begin running it is called a process. The OS assigns the process an ID number (process ID).
+5. Process runs by itself. It is the OS's job to track the execution of the process to respond to request from system resources.
+
+Multitasking
+A CPU can really execute only one instruction at a time, so a component of the operating system named the scheduler allocates a slice of CPU time (called a TIME SLICE) to each task. During a single titme slice, the CPU executes a block of isntructions, stopping when the time slice has ended.
+
+Scheduling:
+Round-Robin
+
+The processor saves the state of each task before switching to a new one. A task's state consists of the contents of the procssor registers, program counter and status flags, along with references to the tasks memory segment.
