@@ -149,3 +149,13 @@ continue loop
 In order to read instructiosn from memory, an address is palced on the address bus.
 next, The memory controller places the req  uested code on the data bus, making the code avail inside the code cache.
 Instruction Pointer (IP) determines which instruction will be executed next.
+
+2.1.3 Reading from Memory
+
+Program throughput is often dependent on speed of memory access. CPU clock speed might be several gigahertz, whereas access to memory occurs over a system bus running at a much slower speed.
+
+The CPU must wait one or more clock cycles until operands have been fetched from memory before the current instruction can complete its execution. The wasted clock cycles are called wait states.
+
+Trailing Edges: A clock-cycle begins as the clock signal changes from high to low.
+
+Conventional memory is slower than the CPU, computers use high-speech cache memory to hold the most recently used instructions and data. The first time a program reads a block of data, it leaves a copy in the cache. (L2/L3 Cache)
