@@ -46,3 +46,12 @@ Trying to tell us that everything can be done by addition.
 Steps:
 Flip-bits (1's comp)
 Add 1
+
+1.4 Boolean Operations
+
+NOT: ¬
+AND: ∧
+OR: ∨
+
+"Order of operations":
+NOT is first before parentheses
