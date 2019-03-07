@@ -362,3 +362,27 @@ The complete collection of pages mapped by the OS is called VIRTUAL MEMORY.
 Paging is a solution to a vexing problem. A program must be loaded into main memory before it can run, but memory is expensive.
 
 Users want to be able to load numerous programs into memory and switch among them at will.
+
+When a task is running, parts of it can be stored on disk if they are not currently in use. Parts of the task are paged (swapped) to disk.
+
+When the processor begins to execute code that has been pages out of memory it issues a PAGE FAULT. Causing the page or pages containing the requred code or data to be loaded back into memory.
+
+
+2.4 Components of x86 Computer
+
+2.4.1 Motherboard
+
+Motherboard Chihpset
+Intel FMA uses an updated Memory Controller Hub (MCH). It can access dual-channel DDR2 memory, at an 800 MHz clock speed.
+
+An I/O controller Hub uses intel matrixc storage technology (MST) to support six Serial ATA devices.
+
+2.4.2 Video Output
+2.4.3 Memory
+
+ROM: permently burned into a chip and connect be erased.
+EPROM: can be erased slowly with ultraviolet light and reprogrammed.
+DRAM: commonly known as main memory, is where progams and data are kept when a program is running. It is inexpensive, but must be refreshed every millisecond to avoid losing its contents.
+SRAM: is primarily for expensive high speed cache memory. It does not have to be reefreshed. CPUI cache memory is comproised of SRAM.
+VRAM holds video data. it is dual ported, allowing one port to continuously refresh the display while another port writtes data to the display.
+CMOS RAM on the system morterboard store system setup information. It is refreshed by a battery, so its contents are tained when the computers power is off.
