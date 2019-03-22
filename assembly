@@ -414,3 +414,138 @@ Level 3: Call library functions to perform generattic text I/O and file based I/
 Level 2: call operating system functions to perform generic text I/O and file-based I/O. If the OS uses a graphical interface, it has functions to display graphicsin a device-independent way.
 Level 1: call BIOS functiosn to control device-specific features such as color, graphics and sound.
 Level 0: Send and receive data from hardware ports.
+
+3.0 Assembly Language Fundamentals
+
+
+MOVED TO:
+Introduction to 64 Bit Intel Assembly Language Programming for Linux
+
+
+
+
+32 and 64 bit registers
+
+64  32  16  8   8
+
+RAX
+    EAX
+        AH
+            AX | AL
+
+
+64-BIT
+R8 - R15, general purpose registers
+    R8D - 16it
+        R8W | R8B - 8it
+
+RAW - Word
+R8B - Byte
+
+
+When is 64-bit mode using 32-bit Registers zeros the top 32 bits.
+
+Proceedures, Video 1: Stacks
+https://www.youtube.com/watch?v=7dLZRMDcY6c
+
+Memory Layout:
+
+Stack (high to down, procedure context)
+Dynamic Data (HEAP) (low to high, varaibles called with new or malloc)
+Static Data (global variables)
+Literals ("example")
+Instructions
+
+Heap Meeting the Stack is a really bad thing (too deeply nested in procedures.. out of memory!!)
+
+Instructions, literals, static data: initialized when program starts up
+
+Dynamic data is managed by the progarm (us)
+
+Stack is managed automatically by the compiler.
+
+Instructions: Read-only and exec
+Literals: Read-only, NOT exec
+Static: Writeable, NOT exec
+Dyanmic: Writeable; NOT exec
+Stack: Writeable, NOT exec
+
+Stack grows in a downward convention (address). Top of stack is at the bottom.
+
+ESP always points to "top" element of stack.
+
+pushl Src ; push long, 32-bit val
+
+Value at Src, reg or memory location and adds to the top of stack and decrements ESP by -4
+
+popl  Dest ; pop off stack
+
+"Remove" val from top of stack and adjust up 4 byte. Remove is just "not referenced" because pointer moves.
+
+Procedures, Video 2: call Stack
+https://www.youtube.com/watch?v=XbZQ-EonR_I
+
+Caller and Callee
+
+Caller will setup some arguments to setup a callee.
+
+Callee must know where to find args
+callee must know where to find "return address"
+caller must know where to find return val
+Caller and callee run on the same CPU - use the SAME registters
+
+The convention of where to leave/find things is called the PROCEDURE CALL LINKAGE
+
+Procedure call:
+<call>  <label>
+label: address of the callee function
+
+before: push return address onto the stack and save it. Address is the instruction immediately followed the call.
+
+Jump to label
+
+By convention values returned byh proceedures are placed in the EAX register. The caller has to make sure to save the register before calling the callee.
+
+EAX is only 4-bytes. Anything bigger is to just return a pointer rather than the object itself.
+
+Procedures, Video 3: Stack-based languages
+https://www.youtube.com/watch?v=4zBG7ZAvURE
+
+Stack-based languages
+C, Pascal, java
+Code must be re-entrant (recursion)
+Need some place to store state of each instantiation.
++ Arguments
++ Local vars
++ Return pointer
+
+Stack discipline:
+State for a given procedure (above) that we need for a limited amount of time.
++ callee always returns before caller does
+
+Stack allocated in FRAMES
+    State for a single procedure instantiation
+
+ebp: BASE pointer register to point to the bottom of the stack frame.
+
+esp -> ebp after callee is done
+
+
+Sequence:
+RSI
+RDX
+RCX
+r8
+r9
+
+The kernel destroys rxc and r11
+The number of the syscall has to be passed in register %rax.
+
+section .text
+_start:
+   ; write(1, message, 13)
+   mov     rax, 1          ; syscall 1 is write
+   mov     rdi, 1          ; file handle 1 is stdout
+   mov     rsi, message    ; address of string to output
+   mov     rdx, 13         ; number of bytes in the string
+   syscall                 ; invoke OS to write the string
